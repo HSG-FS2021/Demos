@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Demo mit externem file</title>
+    <script src="script.js"></script>
+</head>
+
+<body>
+    <h1>hallo hsg 2017!</h1>
+    <div id="container"></div>
+	<div id="message"></div>
+	
+	
+	<span>typ:</span><input type="text" id="type" />
+	<span>modell:</span><input type="text" id="model" />
+	<span>farbe:</span><input type="text" id="color" /><br>
+	<select id="carSelector">
+		<option value="0">1</option>
+		<option value="1">2</option>
+		<option value="2">3</option>
+		<option value="3">4</option>
+		<option value="4">5</option>
+	</select>
+    <button onclick="getCar(document.getElementById('carSelector').value);">get car</button><br>
+	<button onclick="addCar(document.getElementById('type').value, document.getElementById('model').value, document.getElementById('color').value);">add car</button><br>
+	<button onclick="changeBgColor();">hintergrundfarbe &auml;ndern</button><br>
+</body>
+
+</html>

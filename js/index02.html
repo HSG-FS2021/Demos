@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Demo mit script tag im head</title>
+    <script>
+		var car = [{type: 'Audi', model: 'A5', color: 'Rot'}];
+		
+        function getCar(id) {
+			if (car[id]) {
+            document.getElementById('container').innerHTML = 'typ: ' + car[id].type + ' modell: ' + car[id].model + ' farbe: ' + car[id].color;
+			
+			createMessage('auto wurde dargestellt');
+			} else {
+				createMessage('auto wurde nicht gefunden');
+			}
+        }
+		
+		function addCar(type, model, color) {
+            car.push({ type: type, model: model, color: color});
+
+           	createMessage('auto wurde erstellt');
+        }
+		
+		function createMessage(text) {
+            document.getElementById('message').innerHTML = text
+        }
+    </script>
+</head>
+
+<body>
+    <h1>hallo hsg 2017!</h1>
+    <div id="container"></div>
+	<div id="message"></div>
+    <button onclick="getCar(1);">get car</button><br>
+	<button onclick="addCar('vw', 'sharan', 'schwarz');">add car</button><br>
+</body>
+
+</html>

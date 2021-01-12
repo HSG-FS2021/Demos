@@ -1,0 +1,28 @@
+/* 
+kommentar in css
+mehrzeilig
+*/
+
+
+h1 {
+	text-transform: uppercase;
+}
+
+p {
+	background-color: lightblue;
+}
+
+p.text {
+	background-color: lightgreen;
+}
+
+.text {
+	color: blue;
+	font-weight: bold;
+}
+#container {
+	border: 5px solid green;
+}
+#container img {
+	width: 300px;
+}
