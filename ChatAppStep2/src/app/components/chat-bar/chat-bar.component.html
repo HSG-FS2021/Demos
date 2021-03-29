@@ -1,0 +1,19 @@
+<div>
+  <h3>chat-bar</h3>
+  <textarea
+    [(ngModel)]="chatMessage"
+    rows="2"
+    placeholder="Text goes here..."
+    class="form-control"
+    (keyup.enter)="addMessage(chatMessage)"
+  ></textarea>
+  <button
+    (click)="addMessage(chatMessage)"
+    class="btn btn-primary"
+    [disabled]="!chatMessage"
+  >
+    send
+  </button>
+
+  <div *ngIf="errorMessage" class="alert alert-warning">{{ errorMessage }}</div>
+</div>
