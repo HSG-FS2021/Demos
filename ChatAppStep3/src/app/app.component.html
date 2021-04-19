@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="row">
+    <app-header class="col-12"></app-header>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <h1>{{ title }}</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <app-chat-history [history]="messageHistory"></app-chat-history>
+    </div>
+  </div>
+  <div class="row">
+    <app-chat-bar (submitMessage)="onSubmitMessage($event)" class="col-12"></app-chat-bar>
+  </div>
+  <div class="row">
+    <app-footer class="col-12"></app-footer>
+  </div>
+</div>
