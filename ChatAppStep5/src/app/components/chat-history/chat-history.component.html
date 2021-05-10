@@ -1,4 +1,14 @@
-<div>
-  <h3>chat-history</h3>
-  <div class="form-control history" [innerHtml]="history"></div>
+<h3>chat history</h3>
+<div class="form-control" #scrollFrame>
+  <div
+    *ngFor="let item of histories"
+    class="message"
+    [ngClass]="{ me: itsMe(item.nickName), other: !itsMe(item.nickName) }"
+  >
+    <h6>
+      {{ item.nickName }}
+      <small>({{ item.createdAt | date: "dd.MM.yyyy HH:mm" }})</small>
+    </h6>
+    <p [innerHTML]="item.message"></p>
+  </div>
 </div>

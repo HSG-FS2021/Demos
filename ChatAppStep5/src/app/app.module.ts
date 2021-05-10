@@ -9,6 +9,7 @@ import { ChatBarComponent } from './components/chat-bar/chat-bar.component';
 import { FormsModule } from '@angular/forms';
 import { ChatHistoryComponent } from './components/chat-history/chat-history.component';
 import { NicknameComponent } from './components/nickname/nickname.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,7 @@ import { NicknameComponent } from './components/nickname/nickname.component';
     ChatHistoryComponent,
     NicknameComponent,
   ],
-  imports: [BrowserModule, NgbModule, FormsModule],
+  imports: [BrowserModule, NgbModule, FormsModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent],
 })

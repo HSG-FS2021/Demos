@@ -1,4 +1,6 @@
-import { Component, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ChatService } from '../../shared/services/chat.service';
+import { ChatMessage } from '../shared/models/chat-message';
 import { Person } from '../shared/models/person';
 
 @Component({
@@ -6,38 +8,40 @@ import { Person } from '../shared/models/person';
   templateUrl: './chat-bar.component.html',
   styleUrls: ['./chat-bar.component.css'],
 })
-export class ChatBarComponent {
-  @Output() public submitMessage = new EventEmitter<string>();
+export class ChatBarComponent implements OnInit {
   public chatMessage = '';
   public errorMessage = '';
 
+  constructor(private chatService: ChatService) {}
+
+  public ngOnInit(): void {}
+
   public addMessage(message: string): void {
-    if (!message?.trim()) {
+    if (!message) {
+      // alert('Bitte Text erfassen!');
       this.errorMessage = 'Bitte Text erfassen!';
-      this.chatMessage = '';
-
-      // alert(this.errorMessage);
-      // console.log(this.errorMessage);
-
       return;
     }
 
     if (!Person.Nickname) {
-      this.errorMessage = 'Bitte Nickname erfassen!';
       // alert('Bitte Nickname erfassen!');
-      // console.log('Bitte Nickname erfassen!');
-
+      this.errorMessage = 'Bitte Nickname erfassen!';
       return;
     }
 
-    const timestamp: string = new Date().toLocaleDateString('de');
-    const messageToSend = `<p class='nickname'>${Person.Nickname}<p><p>${message} - ${timestamp}<p>`;
+    const messageToSend: ChatMessage = {
+      message,
+      nickName: Person.Nickname,
+    };
 
-    // alert(message);
-    // console.log(message);
-
-    this.submitMessage.emit(messageToSend);
-    this.chatMessage = '';
-    this.errorMessage = '';
+    this.chatService.addToHistory(messageToSend).subscribe(
+      (response: ChatMessage) => {
+        this.chatMessage = '';
+      },
+      (error: any) => {
+        // console.log(error);
+        this.errorMessage = error;
+      }
+    );
   }
 }

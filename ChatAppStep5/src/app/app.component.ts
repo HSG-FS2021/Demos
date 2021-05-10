@@ -6,11 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  public title = 'ChatAppStep';
-  public messageHistory = '';
-
-  public onSubmitMessage(message: string): void {
-    // console.log(message);
-    this.messageHistory += message;
-  }
+  public title = 'ChatApp';
 }

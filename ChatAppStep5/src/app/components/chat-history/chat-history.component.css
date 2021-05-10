@@ -1,4 +1,28 @@
-.history {
-  height: 150px;
+.form-control {
+  min-height: 150px;
+  max-height: 150px;
   overflow: auto;
+  display: flex;
+  flex-direction: column;
+  height: fit-content;
+}
+
+.message {
+  border: 1px solid silver;
+  display: block;
+  height: fit-content;
+  padding: 5px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  width: fit-content;
+}
+
+.message.me {
+  background-color: aliceblue;
+  text-align: right;
+  align-self: flex-end;
+}
+
+.message.other {
+  background-color: aquamarine;
 }

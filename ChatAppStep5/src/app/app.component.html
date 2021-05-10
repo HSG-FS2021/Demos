@@ -11,12 +11,10 @@
     <app-nickname class="col-md-4"></app-nickname>
     <app-chat-history
       class="col-md-8"
-      [history]="messageHistory"
     ></app-chat-history>
   </div>
   <div class="row justify-content-end">
     <app-chat-bar
-      (submitMessage)="onSubmitMessage($event)"
       class="col-md-8"
     ></app-chat-bar>
   </div>
